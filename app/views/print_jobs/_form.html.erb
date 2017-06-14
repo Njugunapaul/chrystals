@@ -1,0 +1,48 @@
+<%= form_with(model: print_job, local: true) do |form| %>
+  <% if print_job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(print_job.errors.count, "error") %> prohibited this print_job from being saved:</h2>
+
+      <ul>
+      <% print_job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+
+  <div class="field">
+    <%= form.label :job_id %>
+      <%= form.collection_select :job_id, Job.all, :id, :name,:include_blank => " Atach to  Job.", :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :Description %>
+    <%= form.text_area :Description, id: :print_job_Description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :startime %>
+    <%=form.datetime_select :starttime, id: :print_job_starttime %>
+  </div>
+  <div class="field">
+    <%= form.label :endtime %>
+    <%= form.datetime_select :endtime, id: :print_job_endtime %>
+    
+  </div>
+  <div class="field">
+    <%= form.label :printer %>
+      <%= form.collection_select :printer_id, Printer.all, :id, :name,:include_blank => " Attach   Printer", :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, id: :print_job_quantity %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

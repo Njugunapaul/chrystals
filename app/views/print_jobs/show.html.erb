@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>JOb Code:</strong>
+  <%= @print_job.code %>
+
+</p>
+
+<p>
+  <strong>Job:</strong>
+  <%= @print_job.job.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @print_job.Description %>
+</p>
+
+<p>
+  <strong>Quantity:</strong>
+  <%= @print_job.quantity %>
+</p>
+
+<%= link_to 'Edit', edit_print_job_path(@print_job) %> |
+<%= link_to 'Back', print_jobs_path %>

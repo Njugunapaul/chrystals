@@ -1,0 +1,317 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.3.0/Chart.bundle.min.js"></script>
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+  <h1>
+  Jobs  Summary
+    <small>ChApp</small>
+  </h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+    <li class="active">Dashboard</li>
+  </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+  <!-- Info boxes -->
+  <div class="row">
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-aqua"><i class="ion ion-ios-gear-outline"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text"><%= link_to "All Jobs", jobs_path %></span>
+          <span class="info-box-number"><%= @total_jobs %><small></small></span>
+
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-red"><i class="fa fa-map-marker"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text"><%= link_to "All  Clients", clients_path %></span>
+          <span class="info-box-number"><%= @total_clients %></span>
+
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+
+    <!-- fix for small devices only -->
+    <div class="clearfix visible-sm-block"></div>
+
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-green"><i class="ion ion-tshirt"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text"><%= link_to "All Print Works", clients_path %> </span>
+          <span class="info-box-number"><%= @total_printjobs %></span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+    <div class="col-md-3 col-sm-6 col-xs-12">
+      <div class="info-box">
+        <span class="info-box-icon bg-yellow"><i class="ion ion-ios-people-outline"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text"><%= link_to "clients", clients_path %>
+          <span class="info-box-number"><%= @total_clients %></span>
+
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <div class="row">
+    <div class="col-md-12">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Summary</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <div class="btn-group">
+              <button type="button" class="btn btn-box-tool dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-wrench"></i></button>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>
+              </ul>
+            </div>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="row">
+            <div class="col-md-8">
+              <p class="text-center">
+                <strong>Scenario  Presenters</strong>
+              </p>
+
+              <div class="chart">
+                <div class="chart">
+                  <canvas id="myChart" width="400" height="160"></canvas>
+                </div>
+              </div>
+              <!-- /.chart-responsive -->
+            </div>
+            <!-- /.col -->
+            <div class="col-md-4">
+
+
+              <!-- /.progress-group -->
+            </div>
+            <!-- /.col -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- ./box-body -->
+        <div class="box-footer">
+          <div class="row">
+
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+
+              <!-- /.description-block -->
+            </div>
+            <!-- /.col -->
+
+              <!-- /.description-block -->
+            </div>
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.box-footer -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+
+  <!-- Main row -->
+  <div class="row">
+    <div class="col-md-8">
+      <!-- TABLE: LATEST ORDERS -->
+      <div class="box box-info">
+        <div class="box-header with-border">
+          <h3 class="box-title">Jobs  YTD</h3>
+
+          <div class="box-tools pull-right">
+            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+            </button>
+            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+          </div>
+        </div>
+        <!-- /.box-header -->
+        <div class="box-body">
+          <div class="table-responsive">
+            <table class="table no-margin">
+              <thead>
+                <tr>
+                    <th> Name</th>
+                    <th> Client</th>
+                    <th>Status</th>
+                    <th>Type</th>
+                    <th>Client</th>
+                    <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+
+
+              </tbody>
+            </table>
+          </div>
+          <!-- /.table-responsive -->
+        </div>
+        <!-- /.box-body -->
+        <div class="box-footer clearfix">
+           <%= link_to "New Client", new_client_path, :class=>'btn btn-sm btn-info btn-flat pull-left' %>
+           <%= link_to "All Clients", clients_path, :class=>'btn btn-sm btn-info btn-flat pull-right' %>
+
+
+        </div>
+        <!-- /.box-footer -->
+      </div>
+      <!-- /.box -->
+    </div>
+    <!-- /.col -->
+
+    <div class="col-md-4">
+      <!-- Info Boxes Style 2 -->
+      <div class="info-box bg-yellow">
+        <span class="info-box-icon"><i class="ion ion-ios-cloud"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Users    Online</span>
+          <span class="info-box-number">19</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 50%"></div>
+          </div>
+              <span class="progress-description">
+                Users    Offline
+              </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+      <div class="info-box bg-green">
+        <span class="info-box-icon"><i class="ion ion-briefcase"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Projects   Activated </span>
+          <span class="info-box-number">6</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 20%"></div>
+          </div>
+              <span class="progress-description">
+                  Last 2  Hrs
+              </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+      <div class="info-box bg-red">
+        <span class="info-box-icon"><i class="ion ion-person-stalker"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">New   users </span>
+          <span class="info-box-number">81</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 70%"></div>
+          </div>
+              <span class="progress-description">
+              3 Days
+              </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+      <div class="info-box bg-aqua">
+        <span class="info-box-icon"><i class="ion-hammer"></i></span>
+
+        <div class="info-box-content">
+          <span class="info-box-text">Outlets   Activated </span>
+          <span class="info-box-number">200</span>
+
+          <div class="progress">
+            <div class="progress-bar" style="width: 40%"></div>
+          </div>
+              <span class="progress-description">
+              in  4  Projects
+              </span>
+        </div>
+        <!-- /.info-box-content -->
+      </div>
+      <!-- /.info-box -->
+
+
+    <!-- /.col -->
+  </div>
+  <!-- /.row -->
+</section>
+<!-- /.content -->
+
+<script>
+      var ctx = document.getElementById("myChart");
+      var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ["Clients", "Jobs"],
+              datasets: [{
+                  label: 'Total',
+                  data: [<%= @total_clients %>, <%= @total_jobs %>],
+                  backgroundColor: [
+                      'rgba(0, 0, 255, 1)',
+                      'rgba(75, 255, 5, 1)',
+
+                  ],
+                  borderColor: [
+                      'rgba(0, 0, 255, 1)',
+                      'rgba(75, 255, 5, 1)',
+
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+</script>

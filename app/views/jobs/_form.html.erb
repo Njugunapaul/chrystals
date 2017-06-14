@@ -1,0 +1,66 @@
+<%= form_with(model: job, local: true) do |form| %>
+  <% if job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name, id: :job_name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :client_id %>
+    <%= form.collection_select :client_id, Client.all, :id, :name,:include_blank => " Add client..", :class=>"form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :job_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity, id: :job_quantity %>
+  </div>
+
+  <div class="field">
+    <%= form.label :datein %>
+    <%= form.datetime_select :datein, id: :job_datein %>
+  </div>
+
+  <div class="field">
+    <%= form.label :duedate %>
+    <%= form.datetime_select :duedate, id: :job_duedate %>
+  </div>
+  <div class="field">
+    <%= form.label :completed %>
+    <%= form.number_field :completed, id: :job_completed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :expectedin %>
+    <%= form.text_field :expectedin, id: :job_expectedin %>
+  </div>
+
+  <div class="field">
+    <%= form.label :status %>    
+    <%= form.select :status, options_for_select(%w[ In_Progress Stalled Complete  On_Hold ]) %>
+  </div>
+
+  <div class="field">
+    <%= form.label :comment %>
+    <%= form.text_field :comment, id: :job_comment %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

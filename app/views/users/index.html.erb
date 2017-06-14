@@ -1,0 +1,25 @@
+<% @users = User.all %>
+<table class="table   table-striped">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Last  Name</th>
+      <th>First  Nam</th>
+      <th>Department</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.email %></td>
+        <td><%= user.lastname %></td>
+        <td><%= user.firstname %></td>
+        <td><%= user.department %></td>
+
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

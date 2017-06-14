@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Print Jobs  </h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Job  Code</th>
+      <th>Job</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th></th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @print_jobs.each do |print_job| %>
+      <tr>
+        <td><%= print_job.code %></td>
+        <td><%= print_job.job.name %></td>
+        <td><%= print_job.Description %></td>
+        <td><%= print_job.quantity %></td>
+        <td><%= link_to 'Show', print_job %></td>
+        <td><%= link_to 'Edit', edit_print_job_path(print_job) %></td>
+        <td><%= link_to 'Destroy', print_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+
+
+    <% end %>
+    <tr>
+      <td><%=  %></td>
+      <td><%=  %></td>
+      <td>Totals</td>
+
+    
+        <td><%= number_with_precision(@tprintjobs, :precision => 2, :delimiter => ',') %></td>
+      <td><%=  %></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Print Job', new_print_job_path %>

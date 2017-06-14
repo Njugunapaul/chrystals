@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  client: one
+  description: MyText
+  quantity: 1
+  datein: 2017-06-08 09:57:35
+  duedate: 2017-06-08 09:57:35
+  expectedin: MyString
+  status: MyString
+  comment: MyString
+
+two:
+  name: MyString
+  client: two
+  description: MyText
+  quantity: 1
+  datein: 2017-06-08 09:57:35
+  duedate: 2017-06-08 09:57:35
+  expectedin: MyString
+  status: MyString
+  comment: MyString

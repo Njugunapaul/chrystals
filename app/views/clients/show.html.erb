@@ -1,0 +1,144 @@
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Client Companies
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Clients</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+<div class="row">
+
+    <div class="col-md-12">
+
+      <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Company Details</h3>
+            </div><!-- /.box-header -->
+	        <div class="box-body">
+
+				<p>
+				  <b>Name:</b>
+				  <%= @client.name %>
+				</p>
+
+        <p>
+          <strong>Description:</strong>
+          <%= @client.description %>
+        </p>
+
+        <p>
+          <strong>Contactperson:</strong>
+          <%= @client.contactperson %>
+        </p>
+
+        <p>
+          <strong>Phone:</strong>
+          <%= @client.phone %>
+        </p>
+
+        <p>
+          <strong>Officeline:</strong>
+          <%= @client.officeline %>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <%= @client.email %>
+        </p>
+
+        <p>
+          <strong>Building:</strong>
+          <%= @client.building %>
+        </p>
+
+        <p>
+          <strong>Street:</strong>
+          <%= @client.street %>
+        </p>
+
+        <p>
+          <strong>Location:</strong>
+          <%= @client.location %>
+        </p>
+
+        <p>
+          <strong>City:</strong>
+          <%= @client.city %>
+        </p>
+
+        <p>
+          <strong>Country:</strong>
+          <%= @client.country %>
+        </p>
+	        </div><!-- /.box-body -->
+          </div><!-- /.box -->
+    </div>
+
+    <div class="col-md-12">
+      <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">JObs</h3>
+            </div><!-- /.box-header -->
+	        <div class="box-body">
+	           		<table class="table table-striped">
+					 <tr>
+						<td><h4>job ID</h4></td>
+						<td><h4>JOb</h4></td>
+
+						<td>Client<h4></h4></td>
+
+						<td><h4>Date in</h4></td>
+						<td><h4>Due  Date</h4></td>
+						<td><h4>Exepected  In</h4></td>
+
+						<td><h4>Status</h4></td>
+						<td><h4>Comment</h4></td>
+						<td><h4>Quantity</h4></td>
+
+						<td><h4>Description</h4></td>
+						<td><h4>Actions</h4></td>
+					</tr>
+
+					<% @jobs.each do |job| %>
+						<tr>
+							<td><%= job.id %></td>
+
+							<td> <%= link_to @client.name, job %> </td>
+
+							<td><%= job.client.name %></td>
+							<td><%= job.datein %></td>
+							<td><%= job.duedate %></td>
+
+							<td><%= job.expectedin %></td>
+
+							<td><%= job.status %></td>
+							<td><%= job.comment %></td>
+
+							<td><%= job.quantity %></td>
+
+							<td><%= job.description %></td>
+
+							<td>
+								<%= link_to 'Edit', edit_job_path(job) %>
+				    			<%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+							</td>
+
+						</tr>
+					<% end %>
+
+				</table>
+
+	        </div><!-- /.box-body -->
+          </div><!-- /.box -->
+    </div>
+
+
+
+</div>
+</section>
